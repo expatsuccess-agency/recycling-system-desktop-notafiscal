@@ -1,0 +1,44 @@
+# Node / React
+node_modules/
+dist/
+build/
+coverage/
+.npm/
+.cache/
+
+# Rust / Tauri
+target/
+src-tauri/target/
+*.AppImage
+*.deb
+*.rpm
+*.exe
+*.msi
+*.msix
+
+# Secrets / certificats
+.env
+.env.*
+!.env.example
+*.p12
+*.pfx
+*.pem
+*.key
+*.lic
+*private_key*
+*secret*
+
+# Données et sauvegardes
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+*.bak
+*.backup
+backups/
+logs/
+
+# Caches et archives
+cache-build/
+*.zip

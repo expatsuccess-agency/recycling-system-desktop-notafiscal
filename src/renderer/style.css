@@ -1,0 +1,189 @@
+:root{font-family:Inter,system-ui,Arial,sans-serif;color:#23424c;background:#f0f6f7;font-size:18px;color-scheme:light}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;border:1px solid #b1c8cd;border-radius:12px;background:#fff;color:#254550;padding:10px 16px}button:hover{background:#eaf5f3}button:disabled{opacity:.45;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #bd761a;outline-offset:2px}input,select{min-height:49px;padding:10px 12px;border:2px solid #b6cbd1;border-radius:10px;background:white;color:#243e46;width:100%}label{display:flex;flex-direction:column;gap:7px;font-weight:650}h1{font-size:29px;margin:0 0 8px}h2{font-size:23px;margin:0 0 16px}h3{font-size:19px}p{line-height:1.48}.shell{display:flex;min-height:100vh}.workspace{flex:1;min-width:0;padding:20px 26px 40px;max-height:100vh;overflow-y:auto}.rightNav{width:228px;flex:0 0 228px;background:#fff;border-left:1px solid #d5e2e5;box-shadow:-3px 0 15px #264a5108;padding:25px 12px;display:flex;flex-direction:column;gap:12px}.rightNav .navLabel{font-size:13px;font-weight:800;letter-spacing:1.5px;color:#729098;padding:10px 14px}.rightNav button{justify-content:flex-start;border-color:transparent;font-weight:750;min-height:66px;padding:14px 17px}.rightNav button.selected{background:#d3ece7;color:#075e56;border:1px solid #7ebbb0}.topbar{min-height:76px;background:white;border-radius:15px;display:flex;align-items:center;gap:13px;padding:12px 20px;box-shadow:0 2px 12px #20414d12}.brandMark{background:#d7efe3;color:#0b795a;border-radius:13px;width:47px;height:47px;display:grid;place-items:center;font-size:34px;font-weight:800}.brand{display:flex;align-items:baseline;gap:7px;white-space:nowrap}.brand strong{font-size:25px}.brand span{font-size:11px;letter-spacing:2px;font-weight:750;color:#5b858d}.version{padding:7px 10px;border-radius:8px;background:#edf3f4;color:#57747c;font-size:13px;font-weight:800}.headerStatus{margin-left:auto;font-weight:650;font-size:14px;color:#19785d}.page{margin-top:24px}.pageTitle{margin-bottom:20px}.pageTitle span,.muted{color:#64818a;font-size:15px}.weighGrid{display:grid;grid-template-columns:minmax(360px,1.1fr) minmax(320px,.9fr);gap:20px}.panel{background:white;border:1px solid #dce8ea;border-radius:17px;padding:24px;box-shadow:0 2px 16px #2945500b}.entryPanel{display:flex;flex-direction:column;gap:22px}.field{width:100%}.fieldRow{display:flex;gap:15px}.productSelect select{font-size:1.3em;font-weight:700;min-height:68px}.productPreview{display:flex;align-items:center;gap:18px;background:#eaf5f3;padding:12px 18px;border-radius:12px}.productPreview span{font-size:35px}.productPreview strong{font-size:21px}.productPreview small{margin-left:auto;color:#456a73}.weightEntry{display:flex;align-items:center;gap:10px}.weightEntry input{font-size:clamp(34px,4vw,57px);font-weight:800;font-variant-numeric:tabular-nums;width:min(100%,330px);height:82px}.weightEntry b{font-size:28px;color:#527680}.primary{background:#087c6e;color:white;border-color:#087c6e;font-weight:750}.primary:hover:not(:disabled){background:#066052;color:white}.secondary{background:#e9f3f3;color:#225e62}.full{width:100%;min-height:65px}.summaryPanel{display:flex;flex-direction:column}.cartLines{flex:1;min-height:130px;max-height:330px;overflow:auto}.cartLine{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #d7e4e7}.cartLine>div{flex:1;display:grid;gap:5px}.cartLine small{color:#6e8890}.cartLine.pending{background:#f0f8f4;padding-inline:8px}.iconButton{min-height:38px;padding:7px}.grandTotal{display:flex;align-items:center;justify-content:space-between;font-size:25px;border-top:2px solid #cde0df;padding:20px 0}.grandTotal strong{font-size:32px;color:#0d7469}.toast{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding:13px 17px;border-radius:10px;font-weight:650}.toast.success{background:#d9f3e1;color:#166342}.toast.error{background:#ffe4e2;color:#8a382e}.toast button{min-height:32px;padding:3px 7px;background:transparent;border:0}.subnav{display:flex;gap:8px;margin:16px 0 22px;border-bottom:1px solid #cedee2;padding-bottom:12px}.subnav button{font-weight:750}.subnav button.active{background:#d9eee8;color:#116254;border-color:#8cc4b5}kbd{font-family:inherit;font-size:12px;padding:3px 6px;background:#e8f1f3;border-radius:5px;color:#285866}.sectionTitle{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.status{border-radius:20px;padding:7px 13px;font-size:13px;font-weight:800}.status.open{color:#11664f;background:#d4f1df}.status.closed{color:#8b5245;background:#fbe3d9}.statsGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:20px 0}.stat{background:#f3f8f9;border:1px solid #e0ebee;border-radius:13px;padding:19px;min-height:113px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}.stat span{font-size:14px;color:#597984;font-weight:650}.stat strong{font-size:clamp(20px,2.1vw,30px);color:#254c56;font-variant-numeric:tabular-nums}.stat.emphasis{background:#dff4eb;border-color:#a8d5c1}.stat.emphasis strong{color:#087652}.stat small{font-size:12px;color:#64818a}.actionRow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:15px 0}.emptyState{display:flex;flex-direction:column;align-items:center;text-align:center;padding:45px;gap:5px}.emptyState svg{color:#319a84}.audit{border:1px solid #d9e6e8;border-radius:12px;padding:12px 17px;background:#f8fbfc;max-height:300px;overflow:auto}.audit>div{border-bottom:1px solid #e0e9ec;padding:8px 0}.audit small{display:block;font-size:12px;color:#62808a;margin-top:4px}.filters{display:flex;align-items:end;gap:10px;flex-wrap:wrap}.filters label{min-width:150px;flex:1}.tableScroll{overflow:auto}table{width:100%;border-collapse:collapse;margin-top:17px;font-size:15px}th,td{text-align:left;border-bottom:1px solid #dae6e9;padding:13px 10px}th{background:#edf5f5;color:#39616b}.clickRow{cursor:pointer}.clickRow:hover{background:#eaf6f3}.periodTotals{display:flex;flex-direction:column;gap:8px;padding:18px;background:#e5f4eb;border-radius:12px;margin-top:15px}.formGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:17px 0}.entityGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:18px 0}.entity{border:1px solid #dae6e9;background:#fafdfe;padding:13px;border-radius:12px;display:flex;flex-direction:column;gap:9px}.entity small{color:#66828a}.entity button{min-height:39px;padding:7px 10px}.chips{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}.chips span{padding:6px;background:#e7f2f1;border-radius:9px}.chips button{min-height:30px;padding:3px 6px}.detail{background:#f3faf7;padding:20px;margin-top:15px;border-radius:12px}.overlay{position:fixed;inset:0;background:#102b36a8;display:grid;place-items:center;z-index:100;padding:20px}.dialog{background:#fff;width:min(590px,96vw);border-radius:20px;padding:28px;position:relative;display:flex;flex-direction:column;gap:18px;box-shadow:0 20px 70px #071b2760}.dialog .close{position:absolute;right:12px;top:12px;border:0}.paymentTotal{font-size:43px;font-weight:850;color:#086d5f;text-align:center}.paymentMethods{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.paymentMethods button{min-height:99px;display:flex;flex-direction:column;gap:9px;font-weight:750}.paymentMethods button strong{font-size:26px}.paymentMethods button.chosen{border:3px solid #068670;background:#dff3ec}.dialog .full{margin-top:10px}@media(max-width:1100px){.rightNav{width:172px;flex-basis:172px}.rightNav button{padding:10px}.weighGrid{grid-template-columns:1fr}.statsGrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.workspace{padding:12px}.rightNav{width:76px;flex-basis:76px;padding:12px 6px}.rightNav button{justify-content:center;padding:8px}.rightNav button span,.rightNav .navLabel{display:none}.brand{flex-direction:column;gap:0}.brand strong{font-size:19px}.brand span{font-size:10px}.topbar{padding:9px}.headerStatus{display:none}.statsGrid{grid-template-columns:1fr}.panel{padding:15px}}
+
+.saleSummary{display:grid;grid-template-columns:1fr 1.4fr;gap:12px;align-items:center;padding:17px;background:#f4faf8;border-radius:12px;margin:10px 0 20px}.saleSummary span{color:#587984}.saleSummary strong{text-align:right;overflow-wrap:anywhere}.vendasPage .formGrid input{font-size:23px;font-weight:700}.vendasPage .grandTotal{margin-top:auto}
+
+/* V2.8.1: menu à gauche et sélection par recherche */
+.leftNav{order:-1;width:242px;flex:0 0 242px;background:#fff;border-right:1px solid #d5e2e5;box-shadow:3px 0 15px #264a5108;padding:25px 12px;display:flex;flex-direction:column;gap:11px}
+.leftNav .navLabel{font-size:12px;font-weight:800;letter-spacing:1.2px;color:#729098;padding:8px 12px}
+.leftNav>button{justify-content:flex-start;min-height:61px;border-color:transparent;font-weight:750;padding:11px 12px}
+.leftNav>button.selected{background:#d3ece7;color:#075e56;border:1px solid #7ebbb0}
+.leftNav>button span{flex:1;text-align:left}.leftNav kbd,.navShortcuts kbd{margin-left:auto}
+.navShortcuts{border-top:1px solid #d7e5e8;padding-top:14px;margin-top:14px;display:grid;gap:8px}.navShortcuts button{justify-content:space-between;font-size:14px;min-height:46px}
+.combo{position:relative;min-width:0;width:100%;display:flex;flex-direction:column;gap:7px}.comboList{position:absolute;z-index:25;top:100%;left:0;right:0;max-height:320px;overflow:auto;background:#fff;border:2px solid #b6cbd1;border-radius:12px;box-shadow:0 12px 28px #17333a24;padding:5px}.comboList button{display:flex;width:100%;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border:0;min-height:51px;padding:10px}.comboList button.highlight,.comboList button:hover{background:#e1f3ed}.comboList small{color:#64818a}.comboList p{padding:10px;color:#64818a}.combo input{font-size:20px}
+.timeline{border-left:3px solid #87b7aa;margin:12px 10px 22px;padding-left:22px;max-height:480px;overflow:auto}.timelineEvent{position:relative;border-radius:12px;background:#f0f8f4;padding:12px 16px;margin-bottom:13px;border:1px solid #d5e7dd}.timelineEvent:before{content:'';position:absolute;left:-31px;top:16px;width:14px;height:14px;background:#168b69;border-radius:50%;border:3px solid white;box-shadow:0 0 0 2px #87b7aa}.timelineEvent.pending{background:#fff6e8;border-color:#f0d3a0}.timelineEvent.pending:before{background:#e6a43a}.timelineStamp{font-size:13px;display:flex;align-items:center;gap:10px;justify-content:space-between;color:#64818a}.timelineStatus{background:#d7eee1;color:#12674e;border-radius:18px;padding:3px 9px;font-weight:750}.timelineEvent.pending .timelineStatus{background:#ffe2aa;color:#8c5717}.timelineInfo{margin-top:5px;font-size:15px;color:#385c64}.timelineEvent small{color:#69818a}
+@media(max-width:1100px){.leftNav{width:185px;flex-basis:185px}}
+@media(max-width:700px){.leftNav{width:74px;flex-basis:74px;padding:12px 6px}.leftNav>button{justify-content:center;padding:8px}.leftNav>button span,.leftNav>button kbd,.leftNav .navLabel,.navShortcuts{display:none}}
+
+/* V2.8.3: marca lateral, linha do tempo em coluna e ícones de reciclagem */
+.topbar{justify-content:flex-end;min-height:52px;padding:9px 20px}.topbarCaption{font-size:13px;color:#65828a;font-weight:600}
+.leftNav{min-height:100vh;position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto}
+.sideBrand{display:flex;gap:12px;align-items:center;padding:5px 8px 18px;border-bottom:1px solid #d7e5e8;min-width:0}
+.sideBrand>div:last-child{display:flex;flex-direction:column;gap:3px;min-width:0}.sideBrand strong{font-size:18px;line-height:1.15;overflow-wrap:anywhere;color:#174c4b}.sideBrand span{font-size:10px;font-weight:800;letter-spacing:1.5px;color:#5b858d}
+.sideBrand .brandMark{width:45px;height:45px;flex-shrink:0;font-size:30px}.navFooter{margin-top:auto;display:flex;flex-direction:column;gap:9px;padding:18px 10px 8px;border-top:1px solid #d7e5e8}.sideCaixa{font-size:14px;font-weight:750;color:#7f6251}.sideCaixa.isOpen{color:#087653}.sideVersion{color:#718990;font-size:12px;font-weight:700}
+.caixaColumns{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(320px,1fr);gap:18px;align-items:start}.caixaColumns .statsGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.caixaTimelinePanel{min-width:0}.caixaTimelinePanel .timeline{max-height:75vh}.caixaTimelinePanel h2{margin-bottom:4px}
+.iconField{min-width:0}.materialIconSelect{width:100%;min-width:0;min-height:68px;font-size:30px;line-height:1.15;text-align:center}.materialIconGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:7px;width:100%;margin-top:9px;max-height:220px;overflow-y:auto}.materialIconGrid button{font-size:30px;min-height:60px;padding:5px;border:2px solid #e0eceb;background:#f4faf8}.materialIconGrid button.active{border-color:#117a6c;background:#d7efe6}.materialIconGrid button:focus-visible{outline-offset:2px}
+@media(max-width:1160px){.caixaColumns{grid-template-columns:1fr}.caixaTimelinePanel .timeline{max-height:420px}}
+@media(max-width:700px){.sideBrand{flex-direction:column;padding:4px 0}.sideBrand>div:last-child,.navFooter .sideCaixa{display:none}.navFooter{padding:6px 2px}.sideVersion{text-align:center;font-size:10px}}
+
+/* V2.8.4: linha do tempo mais compacta (fontes reduzidas em 40%). */
+.timelineEvent{font-size:9px;line-height:1.35}
+.timelineEvent>strong{font-size:9px}
+.timelineStamp{font-size:8px}
+.timelineInfo{font-size:9px}
+.timelineEvent small{font-size:8px}
+.timelineStatus{font-size:8px;padding:2px 6px}
+.fieldHint{font-size:13px;color:#54717a;margin:3px 0 0}
+
+/* Activation UI */
+.activationScreen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f0f7f6;padding:30px;color:#264c50}.activationCard{width:min(620px,100%);background:white;border:1px solid #d5e4e1;border-radius:20px;box-shadow:0 20px 50px #17483b19;padding:35px;display:flex;flex-direction:column;gap:14px}.activationCard h1{margin:0;font-size:28px}.activationCard p{line-height:1.55;margin:0}.activationLogo{font-size:58px;color:#14795d}.activationMachine{display:flex;align-items:center;gap:10px;padding:12px;background:#edf3f3;border-radius:10px}.activationMachine code{overflow-wrap:anywhere;flex:1;font-size:13px}.activationFile{cursor:pointer;border:2px dashed #78a99b;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}.activationError{color:#a52727}.activationCard small{color:#657e82}
+
+/* V4.0.1: localização selecionável do arquivo .lic */
+.licenseModes{border:1px solid #cadfda;border-radius:12px;display:flex;flex-direction:column;gap:12px;padding:12px 16px}
+.licenseModes legend{font-weight:750;padding:0 6px}
+.licenseModes label{display:flex;flex-direction:row;align-items:center;gap:10px;font-size:15px;cursor:pointer}
+.licenseModes input[type=radio]{width:20px;height:20px;min-height:20px;flex-shrink:0}
+.licenseLocation{border-radius:10px;background:#edf3f3;padding:12px;display:flex;flex-direction:column;gap:6px}
+.licenseLocation code{font-size:12px;overflow-wrap:anywhere}
+
+/* V5.0: perfis, relatórios e ergonomia financeira */
+.leftNav>button:disabled{opacity:.35;filter:grayscale(1);cursor:not-allowed}
+.financePage .statsGrid{grid-template-columns:repeat(3,minmax(180px,1fr))}
+.financePage .tableScroll{max-width:100%;overflow-x:auto}
+.financePage table{font-variant-numeric:tabular-nums}
+.activationCard input[type=password],.activationCard input[type=text]{margin-bottom:12px}
+.activationCard .formGrid{grid-template-columns:1fr}
+.financePage h2{margin-top:26px}
+@media(max-width:980px){.financePage .statsGrid{grid-template-columns:repeat(2,minmax(180px,1fr))}}
+@media(max-width:700px){.financePage .statsGrid{grid-template-columns:1fr}}
+
+/* v5.0.1 - financeira abaixo do cabeçalho principal */
+.headerIdentity{display:flex;flex-direction:column;gap:8px;flex:1;min-width:0}
+.headerFinance{align-self:flex-start;min-height:39px;background:#e3f2ed;color:#126452;border:1px solid #acd3c6;font-size:14px;font-weight:750;padding:6px 12px}
+.headerFinance[aria-current="page"]{background:#cce9df;border-color:#62ab91}
+.headerFinance kbd{font-size:11px}
+/* Os campos do cadastro de produtos usam larguras uniformes e compactas. */
+.productFormGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+.productFormGrid>label{min-width:0;max-width:100%}
+.productFormGrid>label>input:not([type="checkbox"]),.productFormGrid>label>select{width:100%;min-width:0;box-sizing:border-box}
+.productFormGrid>label:has(input[type="checkbox"]){flex-direction:row;align-items:center;gap:10px;padding-top:28px;font-size:14px}
+.productFormGrid input[type="checkbox"]{width:20px;height:20px;min-height:auto;flex:0 0 20px}
+.productFormGrid>.iconField{grid-column:span 2}
+.paymentHint{font-size:14px;color:#4b6870;margin:0}
+@media(max-width:1050px){.productFormGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.productFormGrid{grid-template-columns:1fr}.productFormGrid>.iconField{grid-column:span 1}}
+
+/* V5.0.2: gestão financeira dentro da área principal abaixo do cabeçalho. */
+.financePage{width:100%;max-width:none;margin-top:24px;min-width:0}
+.financePage .statsGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.leftNav>button[title="Acesso exclusivo ao administrador"]{opacity:.38}
+@media(max-width:1050px){.financePage .statsGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.financePage .statsGrid{grid-template-columns:minmax(0,1fr)}}
+
+/* Visualização opcional de senha em todos os formulários. */
+.passwordField{display:block;position:relative;width:100%}
+.passwordField input{padding-right:58px;width:100%}
+.passwordEye{position:absolute;right:5px;top:50%;transform:translateY(-50%);width:46px;min-height:40px;padding:0;border:0;background:transparent;color:#426a75;display:flex;align-items:center;justify-content:center}
+.passwordEye:hover{background:#e4f1ef}
+.passwordEye:focus-visible{outline:3px solid #bd761a}
+
+/* V6: product list above product editing fields; compact icon selector. */
+.productListSection{margin:16px 0 22px;padding:14px 16px;background:#f6faf9;border:1px solid #d6e7e4;border-radius:12px}
+.productListSection h3{margin:0 0 10px;font-size:18px}
+.productListSection .entityGrid{margin:8px 0 0;max-height:300px;overflow-y:auto;grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+.productFormGrid>.iconField{grid-column:span 1;justify-self:start;width:148px;max-width:100%}
+.productFormGrid .materialIconSelect{width:112px!important;max-width:100%;min-height:75px;font-size:42px;line-height:1.2;text-align:center;padding:7px 12px}
+.productFormGrid .materialIconSelect option{font-size:34px}
+@media(max-width:650px){.productFormGrid>.iconField{width:148px}}
+
+/* V6.1 - histórico de vendas e lançamentos de vários materiais */
+.salesHistoryPanel{margin-top:24px;max-width:100%;overflow:hidden}
+.salesHistoryPanel .tableScroll{overflow-x:auto}
+.salesHistoryPanel table{min-width:1040px}
+.salesHistoryPanel .detail{margin-top:18px}
+.cashOpenFields{display:grid;gap:14px}
+.cashOpenFields input{width:100%}
+
+/* V7: operação rápida por teclado, caixa legível e manutenção restrita */
+.weighPriceRow{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,.75fr);gap:14px;align-items:end}
+.weighPriceRow .weightEntry input{width:100%;font-size:clamp(28px,3vw,46px)}
+.weighPriceRow input[readonly]{background:#eff5f4;cursor:default;font-weight:800}
+.caixaMainButton{min-height:70px;min-width:225px;font-size:21px;padding:18px 26px}
+.maintenancePanel{margin:22px 0;padding:20px;border:2px solid #d5a5a0;border-radius:14px;background:#fff7f6}
+.dangerButton{background:#a02e28;color:white;border-color:#a02e28;font-weight:800;min-height:58px}
+.dangerButton:hover{background:#7c201b;color:white}
+.timelineEvent .secondary{margin-top:9px;font-size:13px;min-height:36px}
+@media(max-width:700px){.weighPriceRow{grid-template-columns:1fr}}
+
+/* V7.1: acesso de manutenção verificável, campos de pesagem iguais. */
+.weighPriceRow{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+.weighPriceRow .field{min-width:0;width:100%}
+.weighPriceRow .weightEntry{width:100%;min-width:0;display:flex;align-items:center;gap:9px}
+.weighPriceRow .weightEntry input,.weighPriceRow .field>input{width:100%;min-width:0;min-height:62px;height:62px;box-sizing:border-box;font-size:27px;font-weight:750}
+.weighPriceRow .weightEntry b{flex:0 0 auto}
+.productSelect .comboList{max-height:240px}
+.productFormGrid .materialIconSelect{background:#fff!important;min-height:52px;height:52px;font-size:32px;padding:2px 12px}
+.productFormGrid .materialIconSelect option{background:#fff;font-size:32px}
+.maintenancePanel{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.maintenanceConfirm{display:flex;align-items:center;gap:10px;line-height:1.5;font-weight:600}
+.maintenanceConfirm input{width:20px;height:20px;min-height:20px;flex:0 0 auto}
+.maintenancePanel>.field{width:min(520px,100%)}
+.maintenancePanel>.field input{width:100%;margin-top:7px}
+.maintenancePanel .dangerButton:disabled{opacity:.5;cursor:not-allowed}
+.maintenanceLog{width:100%;background:#fff;border:1px solid #e1d3d0;border-radius:12px;padding:14px;max-height:340px;overflow-y:auto}
+.maintenanceLog h3{margin:0 0 7px}
+.maintenanceLogLine{display:flex;gap:15px;align-items:flex-start;padding:8px 2px;border-top:1px solid #e8e7e5;font-size:13px;overflow-wrap:anywhere}
+.maintenanceLogLine time{flex:0 0 72px;color:#607985;font-variant-numeric:tabular-nums}
+.maintenanceLogLine.ok{color:#087652}.maintenanceLogLine.error{color:#a02e28}
+@media(max-width:700px){.weighPriceRow{grid-template-columns:1fr}}
+
+/* V8 — tela de acesso e seletor de ícones compatível com Linux. */
+.loginScreen{background:radial-gradient(ellipse at 50% 18%,#fbfffe 0%,#edf8f5 54%,#dcf1ed 100%);position:relative;overflow:hidden}
+.loginScreen::before{content:"♻";position:absolute;right:-5vw;top:11%;font-size:min(43vw,580px);line-height:1;color:#0f806b09;pointer-events:none}
+.loginCard{position:relative;z-index:1;width:min(570px,96vw);padding:40px;gap:17px;box-shadow:0 25px 60px #184e4531}
+.loginBrand{display:flex;align-items:center;gap:19px;border-bottom:1px solid #d8e3e5;padding-bottom:21px;margin-bottom:3px}
+.loginBrandMark{display:grid;place-items:center;width:83px;height:83px;border-radius:22px;flex:0 0 auto;background:linear-gradient(155deg,#e0f3e8,#bcdfd2);font-size:55px;color:#06845b}
+.loginBrandName{display:flex;flex-direction:column;gap:3px;line-height:1.05}
+.loginBrandName strong{color:#124d49;font-size:30px;letter-spacing:-.5px}
+.loginBrandName span{font-size:15px;letter-spacing:3px;color:#577c83;font-weight:800;margin-top:4px}
+.loginVersion{margin-left:auto;background:#dff3e9;border-radius:24px;color:#10775b;padding:7px 13px;font-size:14px;font-weight:800;white-space:nowrap}
+.loginIntro h1{font-size:29px;color:#124d49;margin:0 0 5px}
+.loginIntro p{color:#66828b}
+.loginInputWithIcon{position:relative;display:flex;align-items:center}
+.loginInputWithIcon>svg{position:absolute;left:14px;z-index:1;color:#37636b;pointer-events:none}
+.loginInputWithIcon>input,.loginInputWithIcon>.passwordField input{padding-left:49px;min-height:57px;margin:0!important;box-shadow:0 3px 7px #163b4112}
+.loginInputWithIcon>.passwordField{flex:1}
+.loginSubmit{min-height:66px;font-size:18px;box-shadow:0 6px 14px #0e6b6042}
+.loginSubmit:disabled{opacity:1;background:#087c6e;color:white;cursor:progress}
+.loginSpinner{animation:loginSpin .8s linear infinite;flex-shrink:0}
+@keyframes loginSpin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.loginSpinner{animation-duration:2.4s}}
+.loginError{background:#fff0ee;color:#8e332d;border-radius:10px;padding:10px 13px;font-size:14px}
+.loginFootnote{text-align:center;color:#718b91;font-weight:550;font-size:13px;padding-top:4px}
+@media(max-width:600px){.loginCard{padding:23px}.loginBrandMark{width:62px;height:62px;font-size:42px}.loginBrandName strong{font-size:24px}.loginVersion{font-size:12px;padding:6px}}
+.productFormGrid>.iconField{width:auto;min-width:0;max-width:100%;justify-self:stretch;position:relative;display:flex;flex-direction:column;gap:7px}
+.iconFieldLabel{font-weight:650}
+.iconPicker{position:relative;width:100%}
+.iconPickerTrigger{width:118px;min-height:57px;background:#fff;border:2px solid #b6cbd1;justify-content:space-between;padding:5px 12px}
+.iconPickerSelected{font-size:32px;line-height:1}
+.iconPickerPanel{position:absolute;bottom:calc(100% + 8px);left:0;width:min(510px,calc(100vw - 95px));max-height:min(540px,80vh);z-index:75;background:#fff;border:1px solid #cedfe0;border-radius:16px;box-shadow:0 16px 45px #092c3650;padding:17px;display:flex;flex-direction:column;gap:14px}
+.iconPickerPanel header{display:flex;align-items:center;gap:10px;color:#184c4a}
+.iconPickerPanel header strong{flex:1;font-size:17px}
+.iconPickerClose{padding:5px;min-height:34px;width:34px;border:0}
+.iconPickerSearch{display:flex;align-items:center;position:relative}
+.iconPickerSearch svg{position:absolute;left:13px;pointer-events:none;color:#5f7d85}
+.iconPickerSearch input{padding-left:43px;min-height:44px}
+.iconPickerCategories{display:flex;flex-wrap:wrap;gap:6px}
+.iconPickerCategories button{min-height:35px;font-size:13px;padding:5px 10px;border-radius:22px;background:#f0f6f5}
+.iconPickerCategories button.current{background:#087c6e;color:#fff;border-color:#087c6e}
+.iconPickerGrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;overflow-y:auto;min-height:74px;max-height:290px;padding:3px}
+.iconPickerGrid button{position:relative;min-height:61px;padding:7px;border-radius:11px;border:1px solid #d5e4e7;background:#fff}
+.iconPickerGrid button span{font-size:30px}
+.iconPickerGrid button.current{border:2px solid #0d8870;background:#e6f5ee}
+.iconPickerCheck{position:absolute;right:2px;top:2px;color:#086e57}
+.iconPickerPanel small{color:#64848a;font-size:12px}
+@media(max-width:600px){.iconPickerPanel{left:auto;right:0;width:min(400px,calc(100vw - 110px))}.iconPickerGrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+.licenseLoading{display:flex;align-items:center;gap:14px;padding:25px 32px;border-radius:16px;background:#fff;box-shadow:0 12px 32px #164c4520;color:#155e54;font-weight:700}
+
+/* V8-NotaFiscal, Etapa A */
+.fiscalPanel{margin-top:20px}.fiscalPanel .formGrid{margin:16px 0}.fiscalNotice{padding:12px 16px;background:#edf7f3;border:1px solid #bbddd3;border-radius:10px;line-height:1.5}

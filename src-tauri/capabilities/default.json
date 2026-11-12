@@ -1,0 +1,11 @@
+{
+  "identifier": "default",
+  "description": "LXO window access",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "dialog:allow-open"
+  ]
+}

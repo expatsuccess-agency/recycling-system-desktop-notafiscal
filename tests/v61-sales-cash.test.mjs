@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const ui=fs.readFileSync('src/renderer/index.tsx','utf8');
+const store=fs.readFileSync('src-tauri/src/store.rs','utf8');
+const caixa=fs.readFileSync('src-tauri/src/caixa.rs','utf8');
+test('Enter validates caixa dialogs without Ctrl+Enter',()=>{assert.match(ui,/ev.key==='Enter'&&dialog/);assert.doesNotMatch(ui,/Ctrl\+Enter/)});
+test('manual caixa number accepted and checked in Rust',()=>{assert.match(caixa,/number/);assert.match(caixa,/NUMERO_CAIXA_INVALIDO/);assert.match(ui,/Número do caixa/)});
+test('purchases show price per kilogram',()=>assert.match(ui,/pending.pricePerKg/));
+test('sales are multiline with separate unit selling price',()=>{assert.match(ui,/saleCart/);assert.match(ui,/salePriceCents/);assert.match(ui,/saleLines/)});
+test('sales history and previous sale interval',()=>{assert.match(store,/"sales:history"/);assert.match(store,/previous_at/);assert.match(ui,/durationBetween/)});
+test('sale snapshot includes buyer company and frozen costs',()=>{assert.match(store,/buyer_company/);assert.match(store,/cost_per_kg/);assert.match(store,/INSERT INTO sale_lines/)});
+test('financial result excludes unknown cost margins',()=>assert.match(ui,/financial.complete\?brl\(financial.grossCents\):'—'/));
