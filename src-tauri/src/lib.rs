@@ -6,6 +6,7 @@ mod license;
 mod auth;
 mod finance;
 mod fiscal;
+mod a1;
 
 use std::sync::Mutex;
 use tauri::{Manager, State};
@@ -45,7 +46,7 @@ fn lxo_call(channel: String, args: Vec<Value>, state: State<'_, LxoState>, sessi
         "license:install" => Ok(json!(license::install(&app,a(0).as_str().ok_or("ARQUIVO_INVÁLIDO")?)?)),
         "license:use-external" => Ok(json!(license::use_external(&app,a(0).as_str().ok_or("CAMINHO_INVÁLIDO")?)?)),
         "license:use-internal" => Ok(json!(license::use_internal(&app)?)),
-        c if c.starts_with("fiscal:") => {let db=state.0.lock().map_err(|_|"LOCK_FAILED")?; fiscal::dispatch(&db,c,&a(0))},
+        c if c.starts_with("fiscal:") || c.starts_with("debug:") => {let db=state.0.lock().map_err(|_|"LOCK_FAILED")?; fiscal::dispatch(&db,c,&a(0))},
         c if c.starts_with("finance:") => {let mut db=state.0.lock().map_err(|_|"LOCK_FAILED")?;let me=auth::current(session.as_deref(),&sessions)?;finance::dispatch(&mut db,c,&a(0),&me.username)},
         c if c.starts_with("caixa:") => { let mut db=state.0.lock().map_err(|_| "LOCK_FAILED")?; caixa::dispatch(&mut db,c,&args,&auth::current(session.as_deref(),&sessions)?.username) },
 

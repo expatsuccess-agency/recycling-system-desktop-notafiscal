@@ -42,3 +42,28 @@ logs/
 # Caches et archives
 cache-build/
 *.zip
+
+# Recycling System NotaFiscal — fichiers locaux
+node_modules/
+target/
+src-tauri/target/
+cache-build/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pfx
+*.p12
+*.pem
+*.key
+*.lic
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+.env
+.env.*
+!.env.example
+*.backup-*
+*.bak
+*.zip

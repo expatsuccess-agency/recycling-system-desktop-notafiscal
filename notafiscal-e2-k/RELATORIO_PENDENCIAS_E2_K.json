@@ -1,0 +1,62 @@
+{
+  "etapas": {
+    "E2": {
+      "completo": false,
+      "pendencias": [
+        "assinatura_local_verificada",
+        "certificado_icp_brasil_validado",
+        "perfil_xmldsig_nfe_validado"
+      ]
+    },
+    "F": {
+      "completo": false,
+      "pendencias": [
+        "xml_nfe_modelo55_gerado",
+        "xsd_oficial_validado",
+        "tributacao_aprovada_contador"
+      ]
+    },
+    "G": {
+      "completo": false,
+      "pendencias": [
+        "servicos_svrs_wsdl_verificados",
+        "homologacao_autorizacao_com_protocolo",
+        "recuperacao_idempotente_validada"
+      ]
+    },
+    "H": {
+      "completo": false,
+      "pendencias": [
+        "danfe_conforme_moc_validado",
+        "eventos_oficiais_homologados",
+        "armazenamento_xml_protocolo_validado"
+      ]
+    },
+    "I": {
+      "completo": false,
+      "pendencias": [
+        "pesagem_integrada",
+        "controle_integrado",
+        "financeiro_conciliado_sem_perda"
+      ]
+    },
+    "J": {
+      "completo": false,
+      "pendencias": [
+        "contabilidade_aprovou",
+        "credenciamento_confirmado",
+        "seguranca_e_backup_testados"
+      ]
+    },
+    "K": {
+      "completo": false,
+      "pendencias": [
+        "linux_release_testado",
+        "windows_release_testado",
+        "rollback_e_migracao_testados"
+      ]
+    }
+  },
+  "todas_as_etapas_concluidas": false,
+  "emissao_producao_ativada_por_este_programa": false
+}

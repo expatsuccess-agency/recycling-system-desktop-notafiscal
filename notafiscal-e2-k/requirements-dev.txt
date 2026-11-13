@@ -1,0 +1,3 @@
+cryptography>=44,<47
+lxml>=5,<7
+pytest>=8,<10
