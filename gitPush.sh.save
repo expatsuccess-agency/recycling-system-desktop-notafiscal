@@ -1,0 +1,125 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+PROJECT="/media/user/skllnxs.cloud/Projets/LXO/V8-NotaFiscal/recycling-system-v8-notafiscal/desktop"
+
+cd "$PROJECT"
+
+echo "========================================"
+echo " RECYCLING NOTAFISCAL — GITHUB PUSH"
+echo "========================================"
+
+# Vérifier l'utilisateur
+if [[ "$(id -u)" -eq 0 ]]; then
+    echo "ERREUR : ne pas utiliser root."
+    exit 1
+fi
+
+# Vérifier la branche et le dépôt distant
+echo ""
+echo "=== BRANCHE ET DEPOT ==="
+git branch --show-current
+git remote -v
+
+if ! git remote get-url origin >/dev/null 2>&1; then
+    echo "ERREUR : aucun dépôt GitHub origin configuré."
+    exit 1
+fi
+
+# Exclure les fichiers sensibles et les sauvegardes
+echo ""
+echo "=== PROTECTION DES FICHIERS ==="
+
+cat >> .gitignore <<'EOF'
+
+# Recycling System NotaFiscal — fichiers locaux
+node_modules/
+target/
+src-tauri/target/
+cache-build/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pfx
+*.p12
+*.pem
+*.key
+*.lic
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+.env
+.env.*
+!.env.example
+*.backup-*
+*.bak
+*.zip
+EOF
+
+# Ajouter uniquement les développements concernés
+echo ""
+echo "=== AJOUT DES SOURCES ==="
+
+git add .gitignore
+
+git add \
+    src-tauri/src/fiscal.rs \
+    src-tauri/src/lib.rs \
+    src-tauri/src/a1.rs \
+    src/renderer/index.tsx \
+    src/renderer/FiscalWorkspace.tsx \
+    src/renderer/DebugTerminal.tsx \
+    tests/ \
+    notafiscal-e2-k/
+
+# Ajouter la documentation E1 si présente
+if [[ -f ETAPA_E1_A1_PTBR.md ]]; then
+    git add ETAPA_E1_A1_PTBR.md
+fi
+
+echo ""
+echo "=== FICHIERS PREPARES ==="
+git diff --cached --stat
+git diff --cached --name-only
+
+# Bloquer les fichiers sensibles évidents
+if git diff --cached --name-only |
+   grep -Ei '\.pfx$|\.p12$|\.pem$|\.key$|\.lic$|\.sqlite|\.db$|\.env$|backup-' ; then
+    echo "ERREUR : fichiers sensibles détectés."
+    exit 1
+fi
+
+echo ""
+echo "=== CONFIRMATION ==="
+read -r -p "Valider le commit et le push ? (oui/non) : " REP
+
+if [[ "$REP" != "oui" ]]; then
+    echo "Opération annulée."
+    exit 0
+fi
+
+echo ""
+echo "=== COMMIT ==="
+
+git commit -m \
+  "feat(notafiscal): integrate RJ E1 fixes and E2-K development kit"
+
+echo ""
+echo "=== SYNCHRONISATION GITHUB ==="
+
+BRANCH="$(git branch --show-current)"
+
+git fetch origin
+git push -u origin "$BRANCH"
+
+echo ""
+echo "=== VERIFICATION ==="
+git status -sb
+git log -1 --oneline
+
+echo ""
+echo "========================================"
+echo " GITHUB PUSH TERMINE"
+echo "========================================"

@@ -202,6 +202,24 @@ pub fn dispatch(db:&Connection,channel:&str,v:&Value)->Result<Value,String>{
    Ok(json!({"id":id,"status":"pendente_configuracao","emissao_habilitada":false}))
   },
   "fiscal:document:import_xml"=>import_xml_reference(db,v),
+  "fiscal:document:preflight"=>{
+   let id=v.get("id").and_then(Value::as_i64).ok_or("DOCUMENTO_INVALIDO")?;
+   let (direction,partner_id,cfop):(String,Option<i64>,String)=db.query_row(
+    "SELECT direction,partner_id,cfop FROM fiscal_documents WHERE id=?1",
+    params![id],|r|Ok((r.get(0)?,r.get(1)?,r.get(2)?))
+   ).map_err(|_|"DOCUMENTO_NAO_ENCONTRADO".to_string())?;
+   let mut blockers:Vec<String>=Vec::new();
+   if partner_id.is_none(){blockers.push("Parceiro fiscal não selecionado".into());}
+   if !code(&cfop,4){blockers.push("CFOP ainda não validado".into());}
+   if direction!="entrada" && direction!="saida" {blockers.push("Tipo de operação inválido".into());}
+   let info=pendencias(db)?;
+   if let Some(missing)=info.get("pendencias").and_then(Value::as_array) {
+    for m in missing {if let Some(t)=m.as_str(){blockers.push(t.to_owned());}}
+   }
+   blockers.push("Geração XML NF-e modelo 55 e assinatura ICP-Brasil ainda não homologadas".into());
+   blockers.push("Transporte SOAP SEFAZ-RJ/SVRS não implementado".into());
+   Ok(json!({"documento":id,"apto_para_transmissao":false,"ambiente":"homologacao","bloqueios":blockers}))
+  },
   "fiscal:document:request_authorization"=>Err("EMISSAO_SEFAZ_NAO_IMPLEMENTADA_NAO_TRANSMITIDO".into()),
   "fiscal:document:cancel"=>Err("CANCELAMENTO_SEFAZ_NAO_IMPLEMENTADO".into()),
   "fiscal:document:consult"=>Err("CONSULTA_SEFAZ_NAO_IMPLEMENTADA".into()),

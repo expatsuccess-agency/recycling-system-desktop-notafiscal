@@ -1,0 +1,122 @@
+{
+  "gerado_em_utc": "2026-11-13T14:58:44.428259+00:00",
+  "situacao": "BLOQUEADO_PARA_EMISSAO",
+  "nota": "Arquivos submetidos não são validados automaticamente. Aprovação fiscal/SEFAZ exige conferência humana e técnica independente.",
+  "itens": [
+    {
+      "etapa": "E2",
+      "item": "assinatura_nfe_validada_por_verificador_independente",
+      "descricao": "Prova de assinatura XMLDSig NF-e por verificador independente",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "E2",
+      "item": "certificado_icp_brasil_cnpj_revogacao",
+      "descricao": "Evidência de certificado, vínculo CNPJ e cadeia/revogação",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "F",
+      "item": "xml_xsd_esquemas_oficiais",
+      "descricao": "Relatório XSD usando pacote oficial vigente",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "F",
+      "item": "regras_fiscais_aprovadas",
+      "descricao": "Regras tributárias validadas pelo contador",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "G",
+      "item": "homologacao_sefaz_resposta_oficial",
+      "descricao": "Protocolo de homologação SEFAZ/SVRS (dados sensíveis removidos)",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "G",
+      "item": "credenciamento_confirmado",
+      "descricao": "Credenciamento verificado junto ao órgão competente",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "G",
+      "item": "retries_consulta_idempotencia",
+      "descricao": "Cenários de timeout/reconsulta/rejeição",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "H",
+      "item": "danfe_protocolos_eventos",
+      "descricao": "DANFE e protocolo autorizações/eventos homologação",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "H",
+      "item": "cancelamento_inutilizacao",
+      "descricao": "Testes de cancelamento/inutilização quando aplicáveis",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "I",
+      "item": "pesagem_controle_financeiro",
+      "descricao": "Recette integrada Pesagem, Controle e Financeiro",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "I",
+      "item": "sqlite_backup_restore",
+      "descricao": "Backup e restauração de base de testes",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "J",
+      "item": "parecer_contador",
+      "descricao": "Parecer formal do contador para o estabelecimento/regime",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "J",
+      "item": "auditoria_seguranca",
+      "descricao": "Auditoria segurança e proteção de dados",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    },
+    {
+      "etapa": "J",
+      "item": "aprovacao_operacional",
+      "descricao": "Aprovação homologação e go-live assinada",
+      "situacao": "PENDENTE",
+      "arquivo": null,
+      "sha256": null
+    }
+  ],
+  "itens_pendentes": 14,
+  "emissao_producao_habilitada": false,
+  "homologacao_sefaz_confirmada_automaticamente": false
+}

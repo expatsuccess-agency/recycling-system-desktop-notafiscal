@@ -1,0 +1,60 @@
+name: NotaFiscal RJ CI and installers (no publish)
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [main, develop]
+permissions:
+  contents: read
+jobs:
+  desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Linux native libraries
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev librsvg2-dev libayatana-appindicator3-dev libudev-dev
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Test frontend
+        run: npm test
+      - name: Build frontend
+        run: npm run build
+      - name: Rust check
+        run: cargo check --manifest-path src-tauri/Cargo.toml
+      # The license public key must be provisioned at build time; never check in private key.
+      # CI must fail explicitly if the public key is missing or a placeholder.
+      - name: Build AppImage Linux
+        if: runner.os == 'Linux'
+        run: npm run tauri:build -- --bundles appimage
+      - name: Build NSIS Windows
+        if: runner.os == 'Windows'
+        run: npm run tauri:build -- --bundles nsis
+      - name: Inspect Linux installers
+        if: runner.os == 'Linux'
+        shell: bash
+        run: bash scripts/verificar_instaladores_linux.sh
+      - name: Inspect Windows installers
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./scripts/verificar_instaladores_windows.ps1
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: notafiscal-${{ matrix.os }}-installers
+          path: src-tauri/target/release/bundle/**
+          if-no-files-found: error

@@ -1,0 +1,88 @@
+{
+  "production_enabled": false,
+  "sefaz_authorized": false,
+  "gates": {
+    "E2": {
+      "xmldsig_profile": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      },
+      "a1_identity": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      }
+    },
+    "F": {
+      "official_schema": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      },
+      "tax_engine": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      }
+    },
+    "G": {
+      "sefaz_homolog_response": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      },
+      "endpoint_verified": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      }
+    },
+    "H": {
+      "danfe_pdf": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      },
+      "events": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      }
+    },
+    "I": {
+      "pesagem": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      },
+      "controle": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      },
+      "caixa": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      }
+    },
+    "J": {
+      "accountant_approval": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      },
+      "credential": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      },
+      "security_audit": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      }
+    },
+    "K": {
+      "linux_installer": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      },
+      "windows_installer": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      },
+      "restore_test": {
+        "state": "PENDENTE",
+        "evidence_sha256": null
+      }
+    }
+  }
+}

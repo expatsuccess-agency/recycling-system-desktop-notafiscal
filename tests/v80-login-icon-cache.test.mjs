@@ -5,9 +5,9 @@ const ui=readFileSync(new URL('../src/renderer/index.tsx',import.meta.url),'utf8
 const css=readFileSync(new URL('../src/renderer/style.css',import.meta.url),'utf8');
 const packageJson=JSON.parse(readFileSync(new URL('../package.json',import.meta.url),'utf8'));
 test('version 8 appears on login and in the application',()=>{
- assert.equal(packageJson.version,'8.1.0');
- assert.match(ui,/className="loginVersion">V8\.1\.0/);
- assert.match(ui,/Versão 8\.0\.0/);
+ assert.equal(packageJson.version,'8.2.0');
+ assert.match(ui,/className="loginVersion">V8\.2\.0/);
+ assert.match(ui,/Versão 8\.2\.0/);
 });
 test('login uses spinner while authenticating and handles errors',()=>{
  assert.match(ui,/if\(loggingIn\)return/);

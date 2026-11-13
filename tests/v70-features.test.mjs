@@ -30,5 +30,5 @@ test('zeramento financeiro protegido e transacional, preserva cadastros',()=>{
  assert.match(lib,/me\.role!="admin" && !employee_allowed/);
 });
 test('versao 7.0.0 sem regressao da licenca',()=>{
- assert.match(ui,/Versão 8\.0\.0/);assert.match(lib,/license::assert_valid/);
+ assert.match(ui,/Versão 8\.2\.0/);assert.match(lib,/license::assert_valid/);
 });

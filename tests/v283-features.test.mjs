@@ -6,7 +6,7 @@ const css=readFileSync(new URL('../src/renderer/style.css',import.meta.url),'utf
 test('brand, navigation and footer',()=>{
   assert.match(src,/Recycling System/);
   assert.match(src,/label:'Pesagem'/);
-  assert.match(src,/Versão 8\.0\.0/);
+  assert.match(src,/Versão 8\.2\.0/);
   assert.match(src,/className="navFooter"/);
 });
 test('timeline beside the cash summary',()=>{

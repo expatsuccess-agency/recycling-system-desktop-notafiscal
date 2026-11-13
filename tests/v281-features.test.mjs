@@ -15,7 +15,7 @@ test('typeahead product/client search uses prefix matching',()=>{
   assert.match(view,/startsWith\(normalize\(query\)\)/);
   assert.match(view,/onKeyDown=.*ArrowDown/);
   assert.match(view,/label="Produto para venda"/);
-  assert.match(view,/Empresa compradora/);
+  assert.doesNotMatch(view,/Empresa compradora/);
 });
 test('Caixa timeline derives confirmed transactions from stored sales and payments',()=>{
   assert.match(caixa,/FROM sales s WHERE s.caixa_id=\?1/);

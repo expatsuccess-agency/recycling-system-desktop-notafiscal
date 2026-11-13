@@ -6,7 +6,7 @@ const store=readFileSync(new URL('../src-tauri/src/store.rs',import.meta.url),'u
 const caixa=readFileSync(new URL('../src-tauri/src/caixa.rs',import.meta.url),'utf8');
 test('navigation Pesagem / Vendas / Caixa in Brazilian Portuguese',()=>{
  assert.match(view,/label:'Pesagem'/); assert.match(view,/label:'Controle'/);
- assert.match(view,/label:'Caixa'/);assert.match(view,/Versão 8\.0\.0/);
+ assert.match(view,/label:'Caixa'/);assert.match(view,/Versão 8\.2\.0/);
 });
 test('Vendas form requests product, weight and price per kg',()=>{
  assert.match(view,/Produto para venda/);assert.match(view,/Peso \(kg\)/);

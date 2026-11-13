@@ -17,7 +17,7 @@ test('navigation and dedicated configuration sections',()=>{
  assert.match(ui,/label:'Controle',key:'F2'/);
  for(const tab of ["'products'","'users'","'control'","'maintenance'"])assert.ok(ui.includes(`configTab===${tab}`));
  assert.ok(ui.indexOf("label:'Gestão Financeira'")<ui.indexOf("label:'Configuração'"));
- assert.match(ui,/ev.key==='F10'&&tab==='vendas'/);
+ assert.match(ui,/ev\.key==='F12'&&\(tab==='weigh'\|\|\(tab==='vendas'&&isAdmin\)\)&&\!dialog&&\!paymentOpen/);
 });
 test('employee authorized for caixa in Rust and UI',()=>{
  assert.match(backend,/channel.starts_with\("caixa:"\)/);
