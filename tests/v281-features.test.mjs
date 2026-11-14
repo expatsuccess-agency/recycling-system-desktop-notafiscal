@@ -4,9 +4,9 @@ import {readFileSync} from 'node:fs';
 const view=readFileSync(new URL('../src/renderer/index.tsx',import.meta.url),'utf8');
 const styles=readFileSync(new URL('../src/renderer/style.css',import.meta.url),'utf8');
 const caixa=readFileSync(new URL('../src-tauri/src/caixa.rs',import.meta.url),'utf8');
-test('menu left with admin F8 and Caixa F6/F7; Clientes hidden',()=>{
+test('menu left with admin F7 and Caixa F5/F11; Clientes hidden',()=>{
   assert.match(view,/className="leftNav"/);
-  for(const n of [1,2,3,5,6,7,8])assert.match(view,new RegExp(`F${n}`));
+  for(const n of [1,3,5,7,9,11])assert.match(view,new RegExp(`F${n}`));
   assert.doesNotMatch(view,/label:'Clientes',key:'F4'/);
   assert.match(styles,/\.leftNav\{order:-1/);
 });

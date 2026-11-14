@@ -14,7 +14,7 @@ test('layout uses equal weight and price columns, white icon selector',()=>{
  assert.match(css,/materialIconSelect\{background:#fff!important/);
 });
 test('navigation and dedicated configuration sections',()=>{
- assert.match(ui,/label:'Controle',key:'F2'/);
+ assert.match(ui,/label:'Controle',key:'F3'/);
  for(const tab of ["'products'","'users'","'control'","'maintenance'"])assert.ok(ui.includes(`configTab===${tab}`));
  assert.ok(ui.indexOf("label:'Gestão Financeira'")<ui.indexOf("label:'Configuração'"));
  assert.match(ui,/ev\.key==='F12'&&\(tab==='weigh'\|\|\(tab==='vendas'&&isAdmin\)\)&&\!dialog&&\!paymentOpen/);

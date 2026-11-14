@@ -2,15 +2,19 @@ import React,{useEffect,useState} from 'react';
 import {open as openDialog} from '@tauri-apps/plugin-dialog';
 import {FiscalWorkspace} from './FiscalWorkspace';
 import {A1E2Proof} from './A1E2Proof';
+import {FiscalBatchPanel} from './FiscalBatchPanel';
+import {ReportsPanel} from './ReportsPanel';
 
 type Obj=Record<string,any>;
 type Api=(channel:string,...args:any[])=>Promise<any>;
-type FiscalTab='empresa'|'certificado'|'parceiros'|'documentos'|'monitor';
+type FiscalTab='empresa'|'certificado'|'parceiros'|'documentos'|'lotes'|'relatorios'|'monitor';
 const tabs:{id:FiscalTab;label:string}[]=[
  {id:'empresa',label:'Dados da Empresa'},
  {id:'certificado',label:'Certificado Digital'},
  {id:'parceiros',label:'Parceiros'},
  {id:'documentos',label:'Documentos Fiscais'},
+ {id:'lotes',label:'Lotes NF-e · revisão'},
+ {id:'relatorios',label:'Relatórios PDF'},
  {id:'monitor',label:'Monitor de Transmissões'}
 ];
 const companyFields:[string,string][]=[
@@ -38,7 +42,7 @@ export function FiscalPortal({api}:{api:Api}){
  };
  return <section className="panel fiscalPanel fiscalPortal">
   <h2>Dados Fiscais · NF-e / NFC-e</h2>
-  <p>RJ · Configuração em homologação. Nenhuma NF-e é enviada ou autorizada por esta versão.</p>
+  <p>RJ · Configuração em homologação. V8.3: lotes administrativos e relatórios; nenhuma NF-e é enviada ou autorizada por esta versão.</p>
   <nav className="fiscalTabs" aria-label="Módulos fiscais" role="tablist">
    {tabs.map(t=><button type="button" key={t.id} role="tab" aria-selected={tab===t.id} className={tab===t.id?'active':''} onClick={()=>{setTab(t.id);setNotice('')}}>{t.label}</button>)}
   </nav>
@@ -79,6 +83,8 @@ export function FiscalPortal({api}:{api:Api}){
     <p>Um agendador futuro poderá retomar consultas de requisições já enviadas, mas nunca autorizar uma NF-e por conta própria.</p>
    </div>
   </div>}
+  {tab==='lotes'&&<div role="tabpanel"><FiscalBatchPanel api={api}/></div>}
+  {tab==='relatorios'&&<div role="tabpanel"><ReportsPanel api={api}/></div>}
   {tab==='monitor'&&<div role="tabpanel">
    <h3>Monitor de Transmissões</h3>
    <p>Histórico de eventos realmente registrados pelo aplicativo; sem mensagens simuladas ou XML completo.</p>

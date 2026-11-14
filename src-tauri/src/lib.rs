@@ -6,6 +6,8 @@ mod license;
 mod auth;
 mod finance;
 mod fiscal;
+mod fiscal_batch;
+mod reports;
 mod a1_e2;
 mod a1;
 
@@ -49,8 +51,33 @@ fn lxo_call(channel: String, args: Vec<Value>, state: State<'_, LxoState>, sessi
         "license:use-internal" => Ok(json!(license::use_internal(&app)?)),
         "fiscal:a1:proof" => a1_e2::proof(&a(0)),
         c if c.starts_with("fiscal:") || c.starts_with("debug:") => {let db=state.0.lock().map_err(|_|"LOCK_FAILED")?; fiscal::dispatch(&db,c,&a(0))},
+        c if c.starts_with("batch:") => {let db=state.0.lock().map_err(|_|"LOCK_FAILED")?;
+            let me=auth::current(session.as_deref(),&sessions)?;
+            if me.role!="admin" {return Err("ACESSO_NEGADO".into())}
+            fiscal_batch::dispatch(&db,c,&a(0),&me.username)
+        },
+        c if c.starts_with("reports:") => {let db=state.0.lock().map_err(|_|"LOCK_FAILED")?;
+            let me=auth::current(session.as_deref(),&sessions)?;
+            if me.role!="admin" {return Err("ACESSO_NEGADO".into())}
+            reports::dispatch(&db,&app,c,&a(0))
+        },
         c if c.starts_with("finance:") => {let mut db=state.0.lock().map_err(|_|"LOCK_FAILED")?;let me=auth::current(session.as_deref(),&sessions)?;finance::dispatch(&mut db,c,&a(0),&me.username)},
-        c if c.starts_with("caixa:") => { let mut db=state.0.lock().map_err(|_| "LOCK_FAILED")?; caixa::dispatch(&mut db,c,&args,&auth::current(session.as_deref(),&sessions)?.username) },
+        c if c.starts_with("caixa:") => {
+            let mut db=state.0.lock().map_err(|_| "LOCK_FAILED")?;
+            let result=caixa::dispatch(&mut db,c,&args,&auth::current(session.as_deref(),&sessions)?.username)?;
+            if c=="caixa:close" {
+                if let Some(id)=result.get("id").and_then(Value::as_i64) {
+                    let mut output=result;
+                    // Fechamento permanece válido mesmo se a exportação PDF falhar.
+                    match reports::automatic_close(&db,&app,id) {
+                      Ok(report)=>output["automaticReport"]=report,
+                      Err(reason)=>output["automaticReportError"]=json!(reason),
+                    }
+                    return Ok(output)
+                }
+            }
+            Ok(result)
+        },
 
         "scale:capture" => {
             let scale = {
@@ -112,6 +139,7 @@ pub fn run() {
             auth::initialize(&db).map_err(std::io::Error::other)?;
             finance::initialize(&db).map_err(std::io::Error::other)?;
             fiscal::initialize(&db).map_err(std::io::Error::other)?;
+            fiscal_batch::init(&db).map_err(std::io::Error::other)?;
             app.manage(LxoState(Mutex::new(db)));
             app.manage(auth::Sessions(Mutex::new(std::collections::HashMap::new())));
             Ok(())

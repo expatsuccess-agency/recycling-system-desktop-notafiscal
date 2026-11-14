@@ -6,7 +6,7 @@ const css=readFileSync(new URL('../src/renderer/style.css',import.meta.url),'utf
 test('Gestão Financeira moved to left sidebar and displayed inside workspace',()=>{
  assert.doesNotMatch(ui, /className="headerFinance"/);
  const nav=ui.slice(ui.indexOf('<aside className="leftNav"'),ui.indexOf('navShortcuts'));
- assert.match(nav,/label:'Gestão Financeira',key:'F8'/);
+ assert.match(nav,/label:'Gestão Financeira',key:'F7'/);
  assert.doesNotMatch(nav,/label:'Clientes'/);
 });
 test('Produto Enter selects product and focuses Peso',()=>{

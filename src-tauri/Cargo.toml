@@ -1,6 +1,6 @@
 [package]
 name = "lxo-industrial-pos"
-version = "8.2.0"
+version = "8.3.0"
 description = "Recycling System Industrial Tauri"
 authors = ["LXO"]
 edition = "2021"

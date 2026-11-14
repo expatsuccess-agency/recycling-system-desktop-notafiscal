@@ -24,28 +24,31 @@ fn winansi_pdf_string(s: &str) -> Vec<u8> {
  }
  out
 }
-fn make_pdf(lines:&[String])->Vec<u8>{
- let mut content=b"BT /F1 11 Tf 40 790 Td 15 TL ".to_vec();
- for l in lines.iter().take(48){
-  content.push(b'(');content.extend(winansi_pdf_string(l));content.extend_from_slice(b") Tj T* ");
+pub fn make_pdf(lines:&[String])->Vec<u8>{
+ const PAGE_LINES:usize=45;
+ let pages:Vec<&[String]>=if lines.is_empty(){vec![lines]}else{lines.chunks(PAGE_LINES).collect()};
+ let mut objects:Vec<Vec<u8>>=Vec::new();
+ // 1 catalog, 2 pages tree, 3 font, page/content pair per page.
+ objects.push(b"<< /Type /Catalog /Pages 2 0 R >>".to_vec());
+ let kids=(0..pages.len()).map(|i|format!("{} 0 R",4+i*2)).collect::<Vec<_>>().join(" ");
+ objects.push(format!("<< /Type /Pages /Kids [{}] /Count {} >>",kids,pages.len()).into_bytes());
+ objects.push(b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>".to_vec());
+ for (i,page) in pages.iter().enumerate(){
+  let content_obj=5+i*2;
+  objects.push(format!("<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents {} 0 R >>",content_obj).into_bytes());
+  let mut content=b"BT /F1 10 Tf 40 792 Td 16 TL ".to_vec();
+  for l in *page{content.push(b'(');content.extend(winansi_pdf_string(l));content.extend_from_slice(b") Tj T* ");}
+  content.extend_from_slice(b"ET");
+  let mut obj=format!("<< /Length {} >>\nstream\n",content.len()).into_bytes();
+  obj.extend_from_slice(&content);obj.extend_from_slice(b"\nendstream");objects.push(obj);
  }
- content.extend_from_slice(b"ET");
- let objects=vec![
-  b"<< /Type /Catalog /Pages 2 0 R >>".to_vec(),
-  b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>".to_vec(),
-  b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>".to_vec(),
-  b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>".to_vec(),
-  {let mut obj=format!("<< /Length {} >>\nstream\n",content.len()).into_bytes();
-   obj.extend_from_slice(&content);obj.extend_from_slice(b"\nendstream");obj}
- ];
  let mut out=b"%PDF-1.4\n".to_vec();let mut offsets=vec![0];
- for (idx,obj) in objects.iter().enumerate(){offsets.push(out.len());
-  out.extend_from_slice(format!("{} 0 obj\n",idx+1).as_bytes());
-  out.extend_from_slice(obj);out.extend_from_slice(b"\nendobj\n");}
+ for (idx,obj) in objects.iter().enumerate(){offsets.push(out.len());out.extend_from_slice(format!("{} 0 obj\n",idx+1).as_bytes());out.extend_from_slice(obj);out.extend_from_slice(b"\nendobj\n");}
  let xref=out.len();out.extend_from_slice(format!("xref\n0 {}\n0000000000 65535 f \n",offsets.len()).as_bytes());
  for off in offsets.iter().skip(1){out.extend_from_slice(format!("{:010} 00000 n \n",off).as_bytes());}
  out.extend_from_slice(format!("trailer\n<< /Size {} /Root 1 0 R >>\nstartxref\n{}\n%%EOF\n",offsets.len(),xref).as_bytes());out
 }
+
 #[cfg(test)]
 mod tests {
  use super::*;
